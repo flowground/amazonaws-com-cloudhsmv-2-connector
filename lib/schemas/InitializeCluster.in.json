@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ClusterId": {
+                    "description": "The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use <a>DescribeClusters</a>.",
+                    "pattern": "cluster-[2-7a-zA-Z]{11,16}",
+                    "type": "string"
+                },
+                "SignedCert": {
+                    "description": "The cluster certificate issued (signed) by your issuing certificate authority (CA). The certificate must be in PEM format and can contain a maximum of 5000 characters.",
+                    "maxLength": 5000,
+                    "pattern": "[a-zA-Z0-9+-/=\\s]*",
+                    "type": "string"
+                },
+                "TrustAnchor": {
+                    "description": "The issuing certificate of the issuing certificate authority (CA) that issued (signed) the cluster certificate. This can be a root (self-signed) certificate or a certificate chain that begins with the certificate that issued the cluster certificate and ends with a root certificate. The certificate or certificate chain must be in PEM format and can contain a maximum of 5000 characters.",
+                    "maxLength": 5000,
+                    "pattern": "[a-zA-Z0-9+-/=\\s]*",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClusterId",
+                "SignedCert",
+                "TrustAnchor"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
