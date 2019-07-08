@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "CopyBackupToRegion": {
             "main": "./lib/actions/CopyBackupToRegion.js",
-            "title": "Copy an AWS CloudHSM cluster backup to a different region.",
+            "title": "CopyBackupToRegion",
             "description": "Copy an AWS CloudHSM cluster backup to a different region.",
             "fields": {
                 "verbose": {
@@ -55,7 +55,7 @@
         },
         "CreateCluster": {
             "main": "./lib/actions/CreateCluster.js",
-            "title": "Creates a new AWS CloudHSM cluster.",
+            "title": "CreateCluster",
             "description": "Creates a new AWS CloudHSM cluster.",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "CreateHsm": {
             "main": "./lib/actions/CreateHsm.js",
-            "title": "Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster.",
+            "title": "CreateHsm",
             "description": "Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster.",
             "fields": {
                 "verbose": {
@@ -89,7 +89,7 @@
         },
         "DeleteBackup": {
             "main": "./lib/actions/DeleteBackup.js",
-            "title": "Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days after the DeleteBackup request. For more information on restoring a backup, see <a>RestoreBackup</a> ",
+            "title": "DeleteBackup",
             "description": "Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days after the DeleteBackup request. For more information on restoring a backup, see <a>RestoreBackup</a> ",
             "fields": {
                 "verbose": {
@@ -106,7 +106,7 @@
         },
         "DeleteCluster": {
             "main": "./lib/actions/DeleteCluster.js",
-            "title": "Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.",
+            "title": "DeleteCluster",
             "description": "Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.",
             "fields": {
                 "verbose": {
@@ -123,7 +123,7 @@
         },
         "DeleteHsm": {
             "main": "./lib/actions/DeleteHsm.js",
-            "title": "Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify only one of these values. To find these values, use <a>DescribeClusters</a>.",
+            "title": "DeleteHsm",
             "description": "Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to specify only one of these values. To find these values, use <a>DescribeClusters</a>.",
             "fields": {
                 "verbose": {
@@ -140,8 +140,8 @@
         },
         "DescribeBackups": {
             "main": "./lib/actions/DescribeBackups.js",
-            "title": "<p>Gets information about backups of AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the backups. When the response contains only a subset of backups, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more backups to get.</p>",
-            "description": "<p>Gets information about backups of AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the backups. When the response contains only a subset of backups, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code> request to get more backups. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more backups to get.</p>",
+            "title": "DescribeBackups",
+            "description": "Gets information about backups of AWS CloudHSM clusters.\n\nThis is a paginated operation, which means that each response might contain only\na subset of all the backups. When the response contains only a subset of\nbackups, it includes a NextToken value. Use this value in a subsequent \nDescribeBackups request to get more backups. When you receive a response with no \nNextToken (or an empty or null value), that means there are no more backups to\nget.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -157,8 +157,8 @@
         },
         "DescribeClusters": {
             "main": "./lib/actions/DescribeClusters.js",
-            "title": "<p>Gets information about AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the clusters. When the response contains only a subset of clusters, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more clusters to get.</p>",
-            "description": "<p>Gets information about AWS CloudHSM clusters.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the clusters. When the response contains only a subset of clusters, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code> request to get more clusters. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more clusters to get.</p>",
+            "title": "DescribeClusters",
+            "description": "Gets information about AWS CloudHSM clusters.\n\nThis is a paginated operation, which means that each response might contain only\na subset of all the clusters. When the response contains only a subset of\nclusters, it includes a NextToken value. Use this value in a subsequent \nDescribeClusters request to get more clusters. When you receive a response with\nno NextToken (or an empty or null value), that means there are no more clusters\nto get.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -174,7 +174,7 @@
         },
         "InitializeCluster": {
             "main": "./lib/actions/InitializeCluster.js",
-            "title": "Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your issuing certificate authority (CA) and the CA's root certificate. Before you can claim a cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA. To get the cluster's CSR, use <a>DescribeClusters</a>.",
+            "title": "InitializeCluster",
             "description": "Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your issuing certificate authority (CA) and the CA's root certificate. Before you can claim a cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA. To get the cluster's CSR, use <a>DescribeClusters</a>.",
             "fields": {
                 "verbose": {
@@ -191,8 +191,8 @@
         },
         "ListTags": {
             "main": "./lib/actions/ListTags.js",
-            "title": "<p>Gets a list of tags for the specified AWS CloudHSM cluster.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more tags to get.</p>",
-            "description": "<p>Gets a list of tags for the specified AWS CloudHSM cluster.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null value), that means there are no more tags to get.</p>",
+            "title": "ListTags",
+            "description": "Gets a list of tags for the specified AWS CloudHSM cluster.\n\nThis is a paginated operation, which means that each response might contain only\na subset of all the tags. When the response contains only a subset of tags, it\nincludes a NextToken value. Use this value in a subsequent ListTags request to\nget more tags. When you receive a response with no NextToken (or an empty or\nnull value), that means there are no more tags to get.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -208,7 +208,7 @@
         },
         "RestoreBackup": {
             "main": "./lib/actions/RestoreBackup.js",
-            "title": "Restores a specified AWS CloudHSM backup that is in the <code>PENDING_DELETION</code> state. For more information on deleting a backup, see <a>DeleteBackup</a>.",
+            "title": "RestoreBackup",
             "description": "Restores a specified AWS CloudHSM backup that is in the <code>PENDING_DELETION</code> state. For more information on deleting a backup, see <a>DeleteBackup</a>.",
             "fields": {
                 "verbose": {
@@ -225,7 +225,7 @@
         },
         "TagResource": {
             "main": "./lib/actions/TagResource.js",
-            "title": "Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.",
+            "title": "TagResource",
             "description": "Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "UntagResource": {
             "main": "./lib/actions/UntagResource.js",
-            "title": "Removes the specified tag or tags from the specified AWS CloudHSM cluster.",
+            "title": "UntagResource",
             "description": "Removes the specified tag or tags from the specified AWS CloudHSM cluster.",
             "fields": {
                 "verbose": {
